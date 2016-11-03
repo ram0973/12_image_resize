@@ -76,7 +76,7 @@ def resize_image(infile: str, width: int, height: int, scale: float,
         outfile = '{0}__{1}x{2}{3}'.format(name, tmp.width, tmp.height, ext)
     try:
         tmp.save(outfile)
-    except KeyError:  # Output format could'nt be determined from the name
+    except KeyError:  # Невозможно определить формат по имени выходного файла
         return IMAGE_RESIZE_WRONG_OUTPUT_FORMAT, None
     finally:
         tmp.close()

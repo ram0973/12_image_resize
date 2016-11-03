@@ -67,9 +67,12 @@ def resize_image(infile: str, width: int, height: int, scale: float,
             elif height:
                 height = abs(int(height))
                 width = round(height * (img.width / img.height))
-        tmp = img.resize((width, height), Image.ANTIALIAS)
+        if not width or not height:
+            return IMAGE_RESIZE_BAD_PARAMS, None
     except TypeError or ValueError or ArithmeticError:
         return IMAGE_RESIZE_BAD_PARAMS, None
+
+    tmp = img.resize((width, height), Image.ANTIALIAS)
 
     name, ext = os.path.splitext(infile)
     if not outfile:

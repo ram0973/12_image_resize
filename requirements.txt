@@ -1,2 +1,1 @@
 Pillow==3.4.2
-win-unicode-console==0.5
